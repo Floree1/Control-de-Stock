@@ -1,0 +1,415 @@
+/* --- Variables de Color y Estilos Generales --- */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #50e3c2;
+    --background-color: #f4f7f6;
+    --card-bg-color: #ffffff;
+    --text-color: #4a4a4a;
+    --danger-color: #d0021b;
+    --low-stock-color: #d0021b;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* --- Estilos para el Login --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background: var(--card-bg-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+
+.error-message {
+    color: var(--danger-color);
+    margin-top: 15px;
+    min-height: 20px;
+}
+
+/* --- Botones --- */
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+}
+.btn-danger:hover {
+    background-color: #a30014;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    margin: 0 5px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.btn-icon.delete:hover {
+    color: var(--danger-color);
+}
+
+.btn-icon.invoice:hover {
+    color: var(--primary-color);
+}
+
+/* --- Contenedor Principal de la App --- */
+.app-container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.app-header h1 {
+    color: var(--primary-color);
+}
+
+.card {
+    background: var(--card-bg-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 25px;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--background-color);
+    padding-bottom: 10px;
+}
+
+/* --- Formulario de Agregar Producto --- */
+#add-product-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#add-product-form input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+}
+
+#add-product-form button {
+    flex-shrink: 0;
+}
+
+/* --- Tabla de Productos --- */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+thead {
+    background-color: #f9f9f9;
+}
+
+th {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+td input[type="text"], td input[type="checkbox"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+td input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.low-stock {
+    color: var(--low-stock-color);
+    font-weight: bold;
+}
+
+/* --- Estilos del Modal (Boleta) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover {
+    color: black;
+}
+
+#invoice-content {
+    border: 1px dashed #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+#invoice-content h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+#invoice-content p {
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* --- Estilos para Impresión --- */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .modal, .modal * {
+        visibility: visible;
+    }
+    .modal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .modal-content {
+        box-shadow: none;
+        border: none;
+        margin: 0 auto;
+    }
+    .no-print {
+        display: none;
+    }
+}
+/* --- Estilos Adicionales para la V2 --- */
+
+/* Botón secundario (para historial) */
+.btn-secondary {
+    background-color: #777;
+}
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* Botón de Vender */
+.btn-icon.sell {
+    color: #28a745; /* Verde */
+}
+.btn-icon.sell:hover {
+    color: #218838;
+}
+
+/* Estilos para el header con múltiples botones */
+.app-header > div {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos para el formulario del modal de venta */
+#sell-product-form h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#sell-product-form .input-group {
+    margin-bottom: 15px;
+}
+
+#sell-product-form {
+    margin-top: 15px;
+}
+/* --- Estilos Adicionales para el Carrito --- */
+.app-main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 para el inventario, 1/3 para el carrito */
+    gap: 25px;
+    align-items: start;
+}
+
+.cart-card {
+    position: sticky; /* Para que el carrito se quede fijo al hacer scroll */
+    top: 20px;
+}
+
+#cart-items {
+    margin-top: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-weight: bold;
+}
+.cart-item-details small {
+    color: #888;
+}
+
+.cart-item-quantity input {
+    width: 60px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#cart-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-success {
+    background-color: #28a745;
+    width: 100%;
+}
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos para la tabla de historial */
+.sale-item-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.sale-item-list li {
+    padding: 2px 0;
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .app-main-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+}

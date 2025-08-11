@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Ventas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fa-solid fa-clock-rotate-left"></i> Historial de Ventas</h1>
+            <div>
+                <a href="stock.html" class="btn"><i class="fa-solid fa-arrow-left"></i> Volver al Inventario</a>
+                <button id="logout-button" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="card product-list-card">
+                <h2><i class="fa-solid fa-list-ul"></i> Ventas Realizadas</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Productos Vendidos</th>
+                                <th>Cliente</th>
+                                <th>Dirección</th>
+                                <th>Medio de Pago</th>
+                                <th>Cód. Seguimiento</th>
+                                <th>Enviado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sales-history-list">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Stock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fa-solid fa-boxes-stacked"></i> Mi Inventario</h1>
+            <div>
+                <a href="historial.html" class="btn btn-secondary"><i class="fa-solid fa-history"></i> Ver Historial</a>
+                <button id="logout-button" class="btn btn-danger"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
+            </div>
+        </header>
+
+        <main class="app-main-grid">
+            <div class="inventory-column">
+                <div class="card add-product-card">
+                    <h2><i class="fa-solid fa-plus"></i> Agregar Nuevo Producto</h2>
+                    <form id="add-product-form">
+                        <input type="text" id="product-name" placeholder="Nombre del Producto" required>
+                        <input type="text" id="product-serial" placeholder="Código de Serie" required>
+                        <input type="number" id="product-stock" placeholder="Cantidad en Stock" min="0" required>
+                        <button type="submit" class="btn"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+                    </form>
+                </div>
+
+                <div class="card product-list-card">
+                    <h2><i class="fa-solid fa-list-ul"></i> Lista de Productos</h2>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cód. de Serie</th>
+                                    <th>Stock</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="product-list">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-column">
+                <div class="card cart-card">
+                    <h2><i class="fa-solid fa-cart-shopping"></i> Pedido Actual</h2>
+                    <div id="cart-items">
+                        </div>
+                    <div id="cart-footer" class="hidden">
+                        <button id="checkout-button" class="btn btn-success"><i class="fa-solid fa-cash-register"></i> Finalizar Venta</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="sell-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2><i class="fa-solid fa-user-check"></i> Datos del Cliente</h2>
+            <form id="sell-product-form">
+                <div class="input-group">
+                    <label>Nombre del Cliente</label>
+                    <input type="text" id="client-name" required>
+                </div>
+                <div class="input-group">
+                    <label>Dirección de Envío</label>
+                    <input type="text" id="client-address" required>
+                </div>
+                <div class="input-group">
+                    <label>Email del Cliente</label>
+                    <input type="email" id="client-email" required>
+                </div>
+                <div class="input-group">
+                    <label>Celular del Cliente</label>
+                    <input type="tel" id="client-phone">
+                </div>
+                <div class="input-group">
+                    <label>Medio de Pago</label>
+                    <input type="text" id="payment-method" placeholder="Ej: Tarjeta de Crédito" required>
+                </div>
+                <div class="input-group">
+                    <label>Código de Seguimiento</label>
+                    <input type="text" id="tracking-code" placeholder="Opcional">
+                </div>
+                <button type="submit" class="btn"><i class="fa-solid fa-check"></i> Confirmar Venta</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+</body>
+</html>
