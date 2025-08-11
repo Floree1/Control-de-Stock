@@ -413,3 +413,22 @@ td input[type="checkbox"] {
         grid-template-columns: 1fr; /* Una sola columna */
     }
 }
+/* --- Estilos Adicionales para el Precio Total --- */
+#cart-total {
+    font-size: 1.5em; /* Aumenta el tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    color: var(--primary-color); /* Color primario */
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+#add-product-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#add-product-form button {
+    grid-column: 1 / -1; /* El botón ocupa todo el ancho */
+}
